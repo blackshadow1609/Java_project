@@ -4,13 +4,13 @@ void main() {
     int count = 0;
     String input;
 
-    System.out.println("Вводите оценки (2-5). Для завершения введите '0'");
+    System.out.println("Вводите оценки (2-5). Для завершения введите 'стоп'");
 
     while (true) {
         System.out.print("Введите оценку: ");
         input = scanner.nextLine();
 
-        if (input.equals("0")) {
+        if (input.equals("стоп")) {
             break;
         }
 
@@ -20,7 +20,7 @@ void main() {
             count = count + 1;
             System.out.println("Оценка: " + grade);
         } else {
-            System.out.println("Ошибка: введите число от 2 до 5 или 0 для выхода");
+            System.out.println("Ошибка: введите число от 2 до 5 или 'стоп' для выхода");
         }
     }
 
