@@ -11,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -55,6 +55,7 @@
       <updated>1788180912228</updated>
       <workItem from="1788180913798" duration="325000" />
       <workItem from="1788181473183" duration="98000" />
+      <workItem from="1788345600262" duration="42000" />
     </task>
     <servers />
   </component>
