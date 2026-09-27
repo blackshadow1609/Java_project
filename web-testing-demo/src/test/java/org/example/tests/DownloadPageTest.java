@@ -15,7 +15,7 @@ public class DownloadPageTest extends BaseTest {
         DownloadPage downloadPage = homePage.openDownloads();
 
         String url = downloadPage.getCurrentUrl();
-        System.out.println("URL страницы: " + url);
+        log.info("URL страницы: {}", url);
 
         Assertions.assertTrue(url.contains("/downloads"),
                 "URL должен содержать '/downloads', но был: " + url);

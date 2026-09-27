@@ -15,7 +15,7 @@ public class HomePageParameterizedTest extends BaseTest {
     void headingContainsSubstring(String substring) {
         HomePage homePage = new HomePage(driver).open();
         String heading = homePage.getMainHeadingText();
-        System.out.println("Проверяю: '" + substring + "' в '" + heading + "'");
+        log.info("Проверяю: '{}' в '{}'", substring, heading);
 
         Assertions.assertTrue(heading.contains(substring),
                 "Заголовок h1 '" + heading + "' должен содержать '" + substring + "'");
@@ -30,7 +30,7 @@ public class HomePageParameterizedTest extends BaseTest {
     void urlContainsExpectedPart(String url, String expectedPart) {
         driver.get(url);
         String currentUrl = driver.getCurrentUrl();
-        System.out.println("URL: " + currentUrl);
+        log.info("URL: {}", currentUrl);
 
         Assertions.assertTrue(currentUrl.contains(expectedPart),
                 "URL '" + currentUrl + "' должен содержать '" + expectedPart + "'");

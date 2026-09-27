@@ -6,17 +6,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
 public class DriverFactory {
 
+    private static final Logger log = LoggerFactory.getLogger(DriverFactory.class);
+
     public static WebDriver createDriver() {
         String browser = ConfigReader.get("browser").toLowerCase();
         boolean headless = ConfigReader.getBoolean("headless");
 
-        WebDriver driver;
+        log.info("Создаю WebDriver: browser={}, headless={}", browser, headless);
 
+        WebDriver driver;
         switch (browser) {
             case "chrome" -> {
                 ChromeOptions options = new ChromeOptions();

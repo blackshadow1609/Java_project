@@ -13,7 +13,7 @@ public class FirstSeleniumTest extends BaseTest {
         HomePage homePage = new HomePage(driver).open();
 
         String title = homePage.getTitle();
-        System.out.println("Заголовок страницы: " + title);
+        log.info("Заголовок страницы: {}", title);
 
         Assertions.assertTrue(title.contains("Selenium"),
                 "Заголовок должен содержать 'Selenium', но был: " + title);
@@ -25,7 +25,7 @@ public class FirstSeleniumTest extends BaseTest {
         HomePage homePage = new HomePage(driver).open();
 
         String heading = homePage.getMainHeadingText();
-        System.out.println("Заголовок h1: " + heading);
+        log.info("Заголовок h1: {}", heading);
 
         Assertions.assertFalse(heading.isBlank(),
                 "Заголовок h1 не должен быть пустым");
