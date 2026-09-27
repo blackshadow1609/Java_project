@@ -22,7 +22,9 @@ public class HomePage extends BasePage {
         return getText(MAIN_HEADING);
     }
 
-    public void clickDownloadLink() {
+    /** Кликает по ссылке Downloads и возвращает страницу загрузок. */
+    public DownloadPage openDownloads() {
         click(DOWNLOAD_LINK);
+        return new DownloadPage(driver);
     }
 }
