@@ -1,43 +1,33 @@
 package org.example.tests;
 
-import org.junit.jupiter.api.AfterEach;
+import org.example.pages.HomePage;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.time.Duration;
-
-public class FirstSeleniumTest {
-
-    private WebDriver driver;
-
-    @BeforeEach
-    void setUp() {
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-    }
+public class FirstSeleniumTest extends BaseTest {
 
     @Test
-    @DisplayName("Открытие главной страницы и проверка заголовка")
-    void openHomePageAndCheckTitle() {
-        // Открываем тестовую страницу
-        driver.get("https://www.selenium.dev/");
+    @DisplayName("Главная страница Selenium содержит заголовок 'Selenium'")
+    void homePageTitleContainsSelenium() {
+        HomePage homePage = new HomePage(driver).open();
 
-        String title = driver.getTitle();
+        String title = homePage.getTitle();
         System.out.println("Заголовок страницы: " + title);
+
         Assertions.assertTrue(title.contains("Selenium"),
                 "Заголовок должен содержать 'Selenium', но был: " + title);
     }
 
-    @AfterEach
-    void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+    @Test
+    @DisplayName("На главной странице есть заголовок h1")
+    void homePageHasMainHeading() {
+        HomePage homePage = new HomePage(driver).open();
+
+        String heading = homePage.getMainHeadingText();
+        System.out.println("Заголовок h1: " + heading);
+
+        Assertions.assertFalse(heading.isBlank(),
+                "Заголовок h1 не должен быть пустым");
     }
 }
